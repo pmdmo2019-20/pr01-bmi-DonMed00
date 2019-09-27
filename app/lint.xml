@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="IconLocation">
+        <ignore path="src/main/res/drawable/bmi.webp" />
+        <ignore path="src/main/res/drawable/normal_weight.webp" />
+        <ignore path="src/main/res/drawable/obesity1.webp" />
+        <ignore path="src/main/res/drawable/obesity2.webp" />
+        <ignore path="src/main/res/drawable/obesity3.webp" />
+        <ignore path="src/main/res/drawable/overweight.webp" />
+        <ignore path="src/main/res/drawable/underweight.webp" />
+    </issue>
+</lint>
