@@ -8,6 +8,104 @@
     android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
-    <!-- TODO -->
+    <TextView
+        android:id="@+id/lblWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/txtWeight"
+        android:text="@string/weight" />
+
+    <EditText
+        android:id="@+id/txtWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="(kg)"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/lblHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/txtHeight"
+        android:text="@string/height" />
+
+    <EditText
+        android:id="@+id/txtHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="(m)"
+        android:text="" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3.5"
+        android:background="@drawable/main_activity_background"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        tools:context=".ui.main.MainActivity">
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/txtBtnReset" />
+
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/txtBtnCalculate" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="@drawable/main_activity_background"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".ui.main.MainActivity">
+
+        <TextView
+            android:id="@+id/lblResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/main_bmi"
+            android:layout_gravity="center"
+            android:textSize="22dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2.5"
+        android:background="@drawable/main_activity_background"
+        android:orientation="vertical"
+        android:padding="40dp"
+        tools:context=".ui.main.MainActivity">
+
+
+        <ImageView
+            android:id="@+id/imgBmi"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/bmi" />
+
+    </LinearLayout>
 
 </LinearLayout>
+
+
