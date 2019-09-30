@@ -5,5 +5,8 @@
     <string name="txtBtnReset">Reset</string>
     <string name="txtBtnCalculate">Calculate BMI</string>
     <string name="main_bmi"></string>
+    <string name="main_invalid_weight">This field can not be blank or 0</string>
+    <string name="main_invalid_height">This field can not be blank or 0</string>
+    <string name="main_overweight"></string>
     <!-- TODO -->
 </resources>

@@ -6,13 +6,13 @@ package es.iessaladillo.pedrojoya.pr01.bmi;
 public class BmiCalculator {
 
     /**
-     * @param weightInKgs Weight of the person in kgs
+     * @param weightInKgs    Weight of the person in kgs
      * @param heightInMeters Height of the person in meters
      * @return The body mass index (BMI)
      */
     public float calculateBmi(float weightInKgs, float heightInMeters) {
         float bmi;
-        bmi = (float) (weightInKgs/ Math.pow(heightInMeters,2));
+        bmi = (float) (weightInKgs / Math.pow(heightInMeters, 2));
         return bmi;
     }
 
@@ -23,18 +23,18 @@ public class BmiCalculator {
      */
     public BmiClasification getBmiClasification(float bmi) {
         BmiClasification bmiClasification = BmiClasification.LOW_WEIGHT;
-        if(bmi<18.5){
+        if (bmi < 18.5) {
             bmiClasification = BmiClasification.LOW_WEIGHT;
-        }else if(bmi>=18.5 && bmi<25){
+        } else if (bmi >= 18.5 && bmi < 25) {
             bmiClasification = BmiClasification.NORMAL_WEIGHT;
-        }else if(bmi>=25 && bmi<30){
-            bmiClasification = BmiClasification.OBESITY_GRADE_1;
-        }else if(bmi>=30 && bmi<35){
-            bmiClasification = BmiClasification.OBESITY_GRADE_2;
-        }else if(bmi>=35 && bmi<=40){
-            bmiClasification = BmiClasification.OBESITY_GRADE_3;
-        }else if(bmi>40){
+        } else if (bmi >= 25 && bmi < 30) {
             bmiClasification = BmiClasification.OVERWWEIGHT;
+        } else if (bmi >= 30 && bmi < 35) {
+            bmiClasification = BmiClasification.OBESITY_GRADE_1;
+        } else if (bmi >= 35 && bmi <= 40) {
+            bmiClasification = BmiClasification.OBESITY_GRADE_2;
+        } else if (bmi > 40) {
+            bmiClasification = BmiClasification.OBESITY_GRADE_3;
         }
         return bmiClasification;
     }

@@ -17,6 +17,8 @@
 
     <EditText
         android:id="@+id/txtWeight"
+        android:maxLength="3"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="(kg)"
@@ -31,6 +33,8 @@
 
     <EditText
         android:id="@+id/txtHeight"
+        android:maxLength="4"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="(m)"
