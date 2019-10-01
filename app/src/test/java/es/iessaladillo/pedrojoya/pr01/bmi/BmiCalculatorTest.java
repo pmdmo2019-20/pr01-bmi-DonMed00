@@ -41,7 +41,7 @@ class BmiCalculatorTest {
 
     @DisplayName("Should return LOW_WEIGHT")
     @ParameterizedTest
-    @ValueSource(floats = {-1, 0, 10, 17.99f})
+    @ValueSource(floats = {-1, 0, 10, 18.49f})
     void should_return_LOW_WEIGHT(float bmi) {
         BmiCalculator sut = new BmiCalculator();
 
@@ -52,7 +52,7 @@ class BmiCalculatorTest {
 
     @DisplayName("Should return NORMAL_WEIGHT")
     @ParameterizedTest
-    @ValueSource(floats = {18, 20, 24.89f})
+    @ValueSource(floats = {18.5f, 20, 24.99f})
     void should_return_normal_weight(float bmi) {
         BmiCalculator sut = new BmiCalculator();
 
@@ -63,7 +63,7 @@ class BmiCalculatorTest {
 
     @DisplayName("Should return OVERWEIGHT")
     @ParameterizedTest
-    @ValueSource(floats = {24.9f, 25.5f, 26.89f})
+    @ValueSource(floats = {25f, 27f, 29.99f})
     void should_return_overweight(float bmi) {
         BmiCalculator sut = new BmiCalculator();
 
@@ -74,7 +74,7 @@ class BmiCalculatorTest {
 
     @DisplayName("Should return OBESITY_GRADE1")
     @ParameterizedTest
-    @ValueSource(floats = {26.9f, 28f, 29.89f})
+    @ValueSource(floats = {30f, 32f, 34.99f})
     void should_return_obesity_grade1(float bmi) {
         BmiCalculator sut = new BmiCalculator();
 
@@ -85,7 +85,7 @@ class BmiCalculatorTest {
 
     @DisplayName("Should return OBESITY_GRADE2")
     @ParameterizedTest
-    @ValueSource(floats = {29.9f, 34f, 39.89f})
+    @ValueSource(floats = {35f, 37f, 39.99f})
     void should_return_obesity_grade2(float bmi) {
         BmiCalculator sut = new BmiCalculator();
 
@@ -96,7 +96,7 @@ class BmiCalculatorTest {
 
     @DisplayName("Should return OBESITY_GRADE3")
     @ParameterizedTest
-    @ValueSource(floats = {39.9f, 42})
+    @ValueSource(floats = {40f, 42f})
     void should_return_obesity_grade3(float bmi) {
         BmiCalculator sut = new BmiCalculator();
 

@@ -1,9 +1,6 @@
 package es.iessaladillo.pedrojoya.pr01.ui.main;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCalculate;
     private TextView lblResult;
     private ImageView imgBmi;
-    private String overweight;
+    private String clasification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
     private void calculateBMI() {
         BmiCalculator bmiCalculator = new BmiCalculator();
         float weight, height, result;
-        DecimalFormat formatoFloat = new DecimalFormat("#.00");
+        DecimalFormat formatoFloat = new DecimalFormat("#.0 ");
 
         if (validate()) {
             weight = Float.parseFloat(txtWeight.getText().toString());
             height = Float.parseFloat(txtHeight.getText().toString());
             result = bmiCalculator.calculateBmi(weight, height);
             imgBmi.setImageResource(getImageClasification(bmiCalculator.getBmiClasification(result)));
-            lblResult.setText("BMI: " + formatoFloat.format(result) + " " + overweight);
+            lblResult.setText("BMI: " + formatoFloat.format(result) + clasification);
 
             SoftInputUtils.hideKeyboard(txtHeight);
         }
@@ -84,27 +81,27 @@ public class MainActivity extends AppCompatActivity {
         int imageID = 0;
         switch (clasification) {
             case LOW_WEIGHT:
-                overweight = "Underweight";
+                this.clasification = "Underweight";
                 imageID = R.drawable.underweight;
                 break;
             case NORMAL_WEIGHT:
-                overweight = "Normal";
+                this.clasification = "Normal";
                 imageID = R.drawable.normal_weight;
                 break;
             case OVERWWEIGHT:
-                overweight = "Overweight";
+                this.clasification = "Overweight";
                 imageID = R.drawable.overweight;
                 break;
             case OBESITY_GRADE_1:
-                overweight = "Obesity Class 1";
+                this.clasification = "Obesity Class 1";
                 imageID = R.drawable.obesity1;
                 break;
             case OBESITY_GRADE_2:
-                overweight = "Obesity Class 2";
+                this.clasification = "Obesity Class 2";
                 imageID = R.drawable.obesity2;
                 break;
             case OBESITY_GRADE_3:
-                overweight = "Obesity Class 3";
+                this.clasification = "Obesity Class 3";
                 imageID = R.drawable.obesity3;
                 break;
         }

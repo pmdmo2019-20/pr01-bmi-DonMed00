@@ -12,6 +12,7 @@ public class BmiCalculator {
      */
     public float calculateBmi(float weightInKgs, float heightInMeters) {
         float bmi;
+
         bmi = (float) (weightInKgs / Math.pow(heightInMeters, 2));
         return bmi;
     }
@@ -31,9 +32,9 @@ public class BmiCalculator {
             bmiClasification = BmiClasification.OVERWWEIGHT;
         } else if (bmi >= 30 && bmi < 35) {
             bmiClasification = BmiClasification.OBESITY_GRADE_1;
-        } else if (bmi >= 35 && bmi <= 40) {
+        } else if (bmi >= 35 && bmi < 40) {
             bmiClasification = BmiClasification.OBESITY_GRADE_2;
-        } else if (bmi > 40) {
+        } else if (bmi >= 40) {
             bmiClasification = BmiClasification.OBESITY_GRADE_3;
         }
         return bmiClasification;

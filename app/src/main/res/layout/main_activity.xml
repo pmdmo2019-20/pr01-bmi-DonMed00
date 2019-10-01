@@ -34,6 +34,7 @@
     <EditText
         android:id="@+id/txtHeight"
         android:maxLength="4"
+
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,7 +106,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
+            android:scaleType="fitCenter"
             android:src="@drawable/bmi" />
 
     </LinearLayout>
