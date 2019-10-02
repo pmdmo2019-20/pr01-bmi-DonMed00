@@ -12,6 +12,13 @@ public class BmiCalculator {
      */
     public float calculateBmi(float weightInKgs, float heightInMeters) {
         float bmi;
+        if (weightInKgs <= 0) {
+            throw new IllegalArgumentException("Error, the weight must be a positive number");
+        }
+
+        if (heightInMeters <= 0) {
+            throw new IllegalArgumentException("Error, the height must be a positive number");
+        }
 
         bmi = (float) (weightInKgs / Math.pow(heightInMeters, 2));
         return bmi;
