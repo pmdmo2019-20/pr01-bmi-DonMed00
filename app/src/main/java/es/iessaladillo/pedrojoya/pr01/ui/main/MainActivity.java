@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
         setupViews();
 
-
     }
 
     private void setupViews() {
@@ -40,13 +39,17 @@ public class MainActivity extends AppCompatActivity {
         btnCalculate = ActivityCompat.requireViewById(this, R.id.btnCalculate);
         lblResult = ActivityCompat.requireViewById(this, R.id.lblResult);
         imgBmi = ActivityCompat.requireViewById(this, R.id.imgBmi);
+
+        lblResult.setText("");
         txtWeight.requestFocus();
         btnCalculate.setOnClickListener(v -> calculateBMI());
         btnReset.setOnClickListener(v -> reset());
 
-
     }
 
+    /**
+     * Reset all the fields, images and texts.
+     */
     private void reset() {
         txtWeight.setText("");
         txtHeight.setText("");
@@ -58,75 +61,74 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This calculate BMI based on the others methods and show it to the user
+     */
     private void calculateBMI() {
         BmiCalculator bmiCalculator = new BmiCalculator();
         float weight, height, result;
-        DecimalFormat formatoFloat = new DecimalFormat("#.0 ");
 
         if (validate()) {
             weight = Float.parseFloat(txtWeight.getText().toString());
             height = Float.parseFloat(txtHeight.getText().toString());
             result = bmiCalculator.calculateBmi(weight, height);
-            imgBmi.setImageResource(getImageClasification(bmiCalculator.getBmiClasification(result)));
-            lblResult.setText("BMI: " + formatoFloat.format(result) + clasification);
 
+            getImageClasification(bmiCalculator.getBmiClasification(result));
+            lblResult.setText(getString(R.string.main_bmi, result, clasification));
             SoftInputUtils.hideKeyboard(txtHeight);
         }
-
-
     }
 
-
-    private int getImageClasification(BmiCalculator.BmiClasification clasification) {
-        int imageID = 0;
-        switch (clasification) {
+    /**
+     * @param bmiClasification BMI
+     * Get clasification and image
+     */
+    private void getImageClasification(BmiCalculator.BmiClasification bmiClasification) {
+        switch (bmiClasification) {
             case LOW_WEIGHT:
-                this.clasification = "Underweight";
-                imageID = R.drawable.underweight;
+                this.clasification = getString(R.string.main_underweight);
+                imgBmi.setImageResource(R.drawable.underweight);
                 break;
             case NORMAL_WEIGHT:
-                this.clasification = "Normal";
-                imageID = R.drawable.normal_weight;
+                this.clasification = getString(R.string.main_normal);
+                imgBmi.setImageResource(R.drawable.normal_weight);
                 break;
             case OVERWWEIGHT:
-                this.clasification = "Overweight";
-                imageID = R.drawable.overweight;
+                this.clasification = getString(R.string.main_overweight);
+                imgBmi.setImageResource(R.drawable.overweight);
                 break;
             case OBESITY_GRADE_1:
-                this.clasification = "Obesity Class 1";
-                imageID = R.drawable.obesity1;
+                this.clasification = getString(R.string.main_obesity1);
+                imgBmi.setImageResource(R.drawable.obesity1);
                 break;
             case OBESITY_GRADE_2:
-                this.clasification = "Obesity Class 2";
-                imageID = R.drawable.obesity2;
+                this.clasification = getString(R.string.main_obesity2);
+                imgBmi.setImageResource(R.drawable.obesity2);
                 break;
             case OBESITY_GRADE_3:
-                this.clasification = "Obesity Class 3";
-                imageID = R.drawable.obesity3;
+                this.clasification = getString(R.string.main_obesity3);
+                imgBmi.setImageResource(R.drawable.obesity3);
                 break;
         }
-        return imageID;
     }
 
+    /**
+     * Check if the edittexts are valid
+     *
+     * @return A boolean depends if the EditTexts are valid
+     */
     private boolean validate() {
-        String main_invalid_weight, main_invalid_height;
-        main_invalid_weight = getString(R.string.main_invalid_weight);
-        main_invalid_height = getString(R.string.main_invalid_height);
         boolean flag = true;
 
-
-        if (txtHeight.getText().toString().equals("") || txtHeight.getText().toString().equals(" ") || txtHeight.getText().toString().equals("0")) {
-            txtHeight.setError(main_invalid_height);
+        if (txtHeight.getText().toString().isEmpty() || Integer.parseInt(txtHeight.getText().toString()) <= 0) {
+            txtHeight.setError(getString(R.string.main_invalid_height));
             flag = false;
         }
 
-
-        if (txtWeight.getText().toString().equals("") || txtWeight.getText().toString().equals(" ") || txtWeight.getText().toString().equals("0")) {
-            txtWeight.setError(main_invalid_weight);
+        if (txtWeight.getText().toString().isEmpty() || Integer.parseInt(txtWeight.getText().toString()) <= 0) {
+            txtWeight.setError(getString(R.string.main_invalid_weight));
             flag = false;
         }
-
         return flag;
     }
-
 }
