@@ -7,11 +7,11 @@
     <string name="main_bmi">BMI: %.2f %s</string>
     <string name="main_invalid_weight">This field can not be blank or 0</string>
     <string name="main_invalid_height">This field can not be blank or 0</string>
-    <string name="main_underweight">Underweight</string>
     <string name="main_normal">Normal</string>
     <string name="main_overweight">Overweight</string>
     <string name="main_obesity1">Obesity Class 1</string>
     <string name="main_obesity2">Obesity Class 2</string>
     <string name="main_obesity3">Obesity Class 3</string>
+    <string name="main_underweight">Underweight</string>
     <!-- TODO -->
 </resources>

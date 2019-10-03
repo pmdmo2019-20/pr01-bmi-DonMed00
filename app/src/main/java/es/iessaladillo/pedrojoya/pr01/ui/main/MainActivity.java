@@ -8,8 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import java.text.DecimalFormat;
-
 import es.iessaladillo.pedrojoya.pr01.R;
 import es.iessaladillo.pedrojoya.pr01.bmi.BmiCalculator;
 import es.iessaladillo.pedrojoya.pr01.utils.SoftInputUtils;
